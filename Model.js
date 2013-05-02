@@ -45,9 +45,6 @@ function(_, Backbone) {
 
     //make events from internal models bubble up to the containing model
     internalModelEvent: function(eventName) {
-      if (eventName.indexOf(':') > 0)
-        //don't bubble up the more specific events
-        return;
       if (eventName in this.internalModelEvents) {
         var args = [eventName];
         args = args.concat(_.toArray(arguments).slice(1));
